@@ -28,7 +28,7 @@ app.post("/api/login", async (req, res) => {
 	if (user) {
 		const isMatch = await bcryptjs.compare(password, user.password);
 		if (isMatch) {
-			const token = JWT.sign({ name:user.name, email:user.email }, process.env.JWT_TOKEN_SECRET, {
+			const token = JWT.sign({ name:user.name, email:email }, process.env.JWT_TOKEN_SECRET, {
 				expiresIn: process.env.JWT_TOKEN_EXPIRES_IN
 			});
 			res.json({
@@ -50,11 +50,20 @@ app.post("/api/login", async (req, res) => {
 	}
 });
 app.post("/api/addDiary", async (req, res) => {
-	const { email ,date, diaryContent } = req.body;
-	const response = await addDiary(email, { date, diaryContent });
-	res.json(response);
+	try{
+		const token = req.headers["x-access-token"];
+		const decoded = await JWT.verify(token, process.env.JWT_TOKEN_SECRET);
+		const email = decoded.email;
+		const { date, diaryContent } = req.body;
+		const response = await addDiary(email, { date, diaryContent });
+		res.json(response);
+	}catch(err){
+		res.json({
+			status: "error",
+			message: "Invalid Token"
+		});
+	}
 });
-
 app.listen(8080, () => {
 	console.log("API active 8080");
 });
