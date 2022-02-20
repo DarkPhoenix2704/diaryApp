@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import { addUser, findUser, addDiary } from "./database/database.js";
+import { addUser, findUser, addDiary, findDiary } from "./database/database.js";
 import bcryptjs from "bcryptjs";
 import JWT from "jsonwebtoken";
 import cors from "cors";
@@ -49,7 +49,7 @@ app.post("/api/login", async (req, res) => {
 		});
 	}
 });
-app.post("/api/addDiary", async (req, res) => {
+app.post("/api/diary", async (req, res) => {
 	try{
 		const token = req.headers["x-access-token"];
 		const decoded = await JWT.verify(token, process.env.JWT_TOKEN_SECRET);
@@ -64,6 +64,21 @@ app.post("/api/addDiary", async (req, res) => {
 		});
 	}
 });
+
+app.get("/api/diary", async (req, res) => {
+	try{
+		const token = req.headers["x-access-token"];
+		const decoded = await JWT.verify(token, process.env.JWT_TOKEN_SECRET);
+		const email = decoded.email;
+		const response = await findDiary(email);
+		res.json(response);
+	}catch(err){
+		res.json({
+			status: "error",
+			message: "Invalid Token"
+		});
+	}
+})
 app.listen(8080, () => {
 	console.log("API active 8080");
 });

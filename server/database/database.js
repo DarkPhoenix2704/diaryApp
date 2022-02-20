@@ -57,4 +57,13 @@ const addDiary = async (email, {date, diaryContent}) => {
 		return {status:"error", message: "Unknown Error"};
 	}
 };
-export {addUser, findUser, addDiary};
+const findDiary = async (email) => {
+	try{
+		const user = await UserModel.findOne({email});
+		return {status:"ok", message: "Diary Found", diary:user.diary};
+	}
+	catch{
+		return {status:"error", message: "Unknown Error"};
+	}
+};
+export {addUser, findUser, addDiary, findDiary};
