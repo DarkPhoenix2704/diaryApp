@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import { addUser, findUser } from "./database/database.js";
+import { addUser, findUser, addDiary } from "./database/database.js";
 import bcryptjs from "bcryptjs";
 import JWT from "jsonwebtoken";
 import cors from "cors";
@@ -12,7 +12,7 @@ app.use(express.json());
 
 mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {
 	useNewUrlParser: true,
-	useUnifiedTopology: true
+	useUnifiedTopology: true	
 });
 
 app.post("/api/register",async (req, res) => {
@@ -49,6 +49,12 @@ app.post("/api/login", async (req, res) => {
 		});
 	}
 });
+app.post("/api/addDiary", async (req, res) => {
+	const { email ,date, diaryContent } = req.body;
+	const response = await addDiary(email, { date, diaryContent });
+	res.json(response);
+});
+
 app.listen(8080, () => {
 	console.log("API active 8080");
 });
