@@ -15,7 +15,8 @@ export default () => ({
 	devServer:{
 		port:3000,
 		open:true,
-		watchFiles:["./web/**/*.{js,jsx,ts,tsx}"]
+		historyApiFallback:true,
+		watchFiles:["./web/**/**/**/*.{js,jsx,ts,tsx}"]
 	},
 	output: {
 		path: buildPath,

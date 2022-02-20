@@ -21,19 +21,19 @@
     ],
     "rules": {
         "indent": [
-            "warn",
+            "error",
             "tab"
         ],
         "linebreak-style": [
-            "warn",
+            "error",
             "windows"
         ],
         "quotes": [
-            "warn",
+            "error",
             "double"
         ],
         "semi": [
-            "warn",
+            "error",
             "always"
         ]
     }

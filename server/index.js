@@ -78,7 +78,7 @@ app.get("/api/diary", async (req, res) => {
 			message: "Invalid Token"
 		});
 	}
-})
+});
 app.listen(8080, () => {
 	console.log("API active 8080");
 });
