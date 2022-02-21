@@ -2,13 +2,18 @@ import UserModel from "./models/User.js";
 
 const addUser = async (name, email, password) => {
 	try {
-		new UserModel({
-			_id:email,
-			name:name,
-			password:password,
-			diary: []
-		}).save();
-		return {status:"ok", message: "User Created"};
+		const user = await UserModel.findOne({email:email});
+		if(user){
+			return {status:"error", message: "Account already exists"};
+		}else{
+			new UserModel({
+				_id:email,
+				name:name,
+				password:password,
+				diary: []
+			}).save();
+			return {status:"ok", message: "User Created"};
+		}
 	} catch (error) {
 		return {status:"error", message: "Account already exists"};
 	}
