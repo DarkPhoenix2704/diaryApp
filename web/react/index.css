@@ -1,6 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
 *{
     padding: 0px;
     margin: 0px;
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
 }
 .login-container {

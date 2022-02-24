@@ -1,0 +1,53 @@
+.commandBar{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    padding-block: 5px;
+    padding-inline: 10px;
+    justify-content: space-between;
+}
+.commandBar .btnSave{
+    background-color: #00a8ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    padding-inline: 15px;
+    border: 1px solid #00a8ff;
+    padding-block: 8px;
+    margin-right: 10px;
+}
+.commandBar .btnSave:hover {
+    background-color: white;
+    border: 1px solid #00a8ff;
+    border-radius: 5px;
+    color: #00a8ff;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    margin-inline: 5px;   
+}
+.content .content-left{
+    width: 50%;
+    height: 100%;
+}
+.content .content-right{
+    padding-inline: 8px;
+    width: 50%;
+    height: 80vh;
+}
+.content .content-left .content-left-textarea{
+    width: 100%;
+    height: 80vh;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-inline: 10px;
+    padding-block: 10px;
+    resize: none;
+}
