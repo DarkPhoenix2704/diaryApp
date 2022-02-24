@@ -62,10 +62,19 @@ const addDiary = async (email, {date, diaryContent}) => {
 		return {status:"error", message: "Unknown Error"};
 	}
 };
-const findDiary = async (email) => {
+const findDiary = async (email, date) => {
 	try{
 		const user = await UserModel.findOne({email});
-		return {status:"ok", message: "Diary Found", diary:user.diary};
+		let userDiary;
+		user.diary.forEach(diary => {
+			if(diary._id === date){
+				userDiary = diary;
+			}
+		});
+		if(userDiary){
+			return {status:"ok", message: "Diary Found", diary:userDiary};
+		}
+		return {status:"error", message: "Diary Not Found"};
 	}
 	catch{
 		return {status:"error", message: "Unknown Error"};
