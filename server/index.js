@@ -68,7 +68,7 @@ app.post("/api/diary", async (req, res) => {
 app.get("/api/diary", async (req, res) => {
 	try{
 		const token = req.headers["x-access-token"];
-		const { date } = req.body;
+		const date = req.query.date;
 		const decoded = await JWT.verify(token, process.env.JWT_TOKEN_SECRET);
 		const email = decoded.email;
 		const response = await findDiary(email, date);

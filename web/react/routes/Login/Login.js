@@ -23,7 +23,7 @@ function Login() {
 		});
 		const data = await response.json();
 		if (data.authToken) {
-			localStorage.setItem("token", data.user);
+			localStorage.setItem("token", data.authToken);
 			toast.success("Successfully Logged In");
 			await delay(3000);
 			window.location.href = "/";
