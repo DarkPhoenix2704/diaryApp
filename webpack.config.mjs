@@ -2,6 +2,11 @@ import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { fileURLToPath } from "url";
 import sharp from "responsive-loader";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+
+import TerserPlugin from "terser-webpack-plugin";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -16,11 +21,11 @@ export default () => ({
 		port:3000,
 		open:true,
 		historyApiFallback:true,
-		watchFiles:["./web/**/**/**/*.{js,jsx,ts,tsx}"]
+		watchFiles:["./web/**/**/**/**/*.{js,jsx,ts,tsx,css}"]
 	},
 	output: {
 		path: buildPath,
-		filename: "bundle.js",
+		filename: "bundle.[contenthash].js",
 	},
 	module: {
 		rules: [
@@ -57,7 +62,7 @@ export default () => ({
 			},
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+				use: [MiniCssExtractPlugin.loader, "css-loader"],
 			},
 			{
 				test: /\.(?:ico|gif)$/i,
@@ -69,11 +74,27 @@ export default () => ({
 			},
 		]
 	},
+	optimization:{
+		minimizer:[
+			new TerserPlugin(),
+			new CssMinimizerPlugin(),
+			new HtmlWebpackPlugin({
+				template: path.resolve(__dirname, "./web/index.html"),
+				title: "DiaryApp",
+				favicon: path.resolve(__dirname, "./web/assets/favicon.ico"),
+				minify: {
+					removeAttributeQuotes: true,
+					collapseWhitespace: true,
+					removeComments: true
+				}
+			}),
+		],
+		splitChunks: {
+			chunks: "all",
+		},
+	},
 	plugins:[
-		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, "./web/index.html"),
-			title: "DiaryApp",
-			favicon: path.resolve(__dirname, "./web/assets/favicon.ico"),
-		})
+		new CleanWebpackPlugin(),
+		new MiniCssExtractPlugin({filename: "bundle.[contenthash].css"}),
 	]
 });
