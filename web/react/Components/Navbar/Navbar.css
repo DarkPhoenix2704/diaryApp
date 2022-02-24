@@ -1,0 +1,51 @@
+.nav{
+    background-color: transparent;
+    width: 100%;
+    position: relative;
+    padding-top: 8px;
+    background-color: #267fff;
+    padding-bottom: 8px;
+    display: inline-block;
+    top: 0;
+}
+.navBrand{
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    display:inline;
+    text-align: center;
+    padding: 20px;
+}
+.navItems{
+    color: white;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: right;
+    text-align: center;
+}
+.navItem{
+    margin-right: 20px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.navItem:hover{
+    border-bottom: 3px solid white;
+    border-radius: 2px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.btnLogout{
+    text-align: center;
+    margin-right: 20px;
+    font-size: 18px;
+    transition: 0.3s;
+    background-color: white;
+    cursor: pointer;
+    padding:4px;
+    color: #267fff;
+    border: solid 3px white;
+    border-radius: 9px;
+}
