@@ -2,6 +2,8 @@ import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { fileURLToPath } from "url";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { InjectManifest } from "workbox-webpack-plugin";
+import WebpackPwaManifest from "webpack-pwa-manifest";
 import sharp from "responsive-loader";
 import webpack from "webpack";
 const __filename = fileURLToPath(import.meta.url);
@@ -85,6 +87,27 @@ export default () => ({
 			Buffer: ["buffer","Buffer"]
 		}),
 		new MiniCssExtractPlugin({filename: "bundle.[contenthash].css"}),
+		new InjectManifest({
+			swSrc: "./web/react/sw.js",
+			swDest: "sw.js",
+			exclude: [ /\.map$/, /^manifest.*\.js(?:on)?$/, /\.(jpe?g|png|webp)$/i ]
+		}),
+		new WebpackPwaManifest({
+			filename: "manifest.[contenthash].json",
+			name: "My Diary",
+			short_name: "Diary",
+			background_color: "#ffffff",
+			orientation: "any",
+			theme_color: "#267fff",
+			publicPath: "/",
+			icons: [
+				{
+					src: path.resolve(__dirname, "..", "web/assets/logo.png"),
+					sizes: [96, 128, 192, 256, 384, 512]
+				}
+			]
+			
+		}),
 
 	]
 });

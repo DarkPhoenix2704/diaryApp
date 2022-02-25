@@ -7,6 +7,7 @@ export default () => ({
 	devtool: "source-map",
 	plugins: [
 		new CleanWebpackPlugin(),
+		
 	],
 	optimization:{
 		minimizer:[
