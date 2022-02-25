@@ -2,10 +2,12 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
+import "react-toastify/dist/ReactToastify.css";
 import DatePicker from "react-modern-calendar-datepicker";
 import { Remark } from "react-remark";
 import { useEffect, useState } from "react";
 import "./Home.css";
+import { toast, ToastContainer } from "react-toastify";
 
 function Home() {
 	const [selectedDay, setSelectedDay] = useState(null);
@@ -55,7 +57,11 @@ function Home() {
 			})
 		});
 		const data = await response.json();
-		console.log(data);
+		if(data.status === "ok") {
+			toast.success("Diary Saved Successfully",{
+				position: "top-center",
+			});
+		}
 
 	}
 
@@ -90,6 +96,7 @@ function Home() {
 					</div>
 				</div>
 			</div>
+			<ToastContainer/>
 		</>
 	);
 }

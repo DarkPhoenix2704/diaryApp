@@ -64,6 +64,7 @@
     padding-block: 12px;
     border-radius: 5px;
     border: none;
+    margin-bottom: 12px;
     transition: all 0.3s ease;
 }
 .login-button:hover{

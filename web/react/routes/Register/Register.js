@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { delay } from "../../utils/Util";
@@ -9,6 +10,7 @@ function Register() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [name, setName] = useState("");
+	const navigate = useNavigate();
 	async function handleRegister(event) {
 		event.preventDefault();
 		const response = await fetch("http://localhost:8080/api/register", {
@@ -53,6 +55,7 @@ function Register() {
 					<input type="password" placeholder="Password"onChange={(e)=>setPassword(e.target.value)} />
 				</div>
 				<button className="login-button" onClick={(event)=>{handleRegister(event);}}><FontAwesomeIcon icon={solid("arrow-right-to-bracket")} /> &nbsp; SignUp</button>
+				<button className="login-button" onClick={()=>{navigate("/login");}}><FontAwesomeIcon icon={solid("arrow-right-to-bracket")} /> &nbsp; Login</button>
 			</div>
 			<ToastContainer />
 		</>
