@@ -49,6 +49,24 @@ app.post("/api/login", async (req, res) => {
 		});
 	}
 });
+app.post("/api/verify", async (req, res) => {
+	const token = req.headers["x-access-token"];
+	try{
+		const decoded = await JWT.verify(token, process.env.JWT_TOKEN_SECRET);
+		const email = await decoded.email;
+		res.json({
+			status: "ok",
+			message: "Logged In",
+			email : email
+		});
+	}catch(err){
+		res.json({
+			status: "error",
+			message: "Invalid Token"
+		});
+	}
+});
+
 app.post("/api/diary", async (req, res) => {
 	try{
 		const token = req.headers["x-access-token"];
