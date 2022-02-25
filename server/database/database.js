@@ -2,7 +2,7 @@ import UserModel from "./models/User.js";
 
 const addUser = async (name, email, password) => {
 	try {
-		const user = await UserModel.findOne({email:email});
+		const user = await UserModel.findById({_id:email});
 		if(user){
 			return {status:"error", message: "Account already exists"};
 		}else{
@@ -15,13 +15,13 @@ const addUser = async (name, email, password) => {
 			return {status:"ok", message: "User Created"};
 		}
 	} catch (error) {
-		return {status:"error", message: "Account already exists"};
+		return {status:"error", message: "Error Occurred"};
 	}
 };
 
 const findUser = async (email) => {
 	try{
-		const user = await UserModel.findOne({email});
+		const user = await UserModel.findById({_id:email});
 		return user;
 	}catch{
 		return null;
@@ -29,7 +29,7 @@ const findUser = async (email) => {
 };
 const addDiary = async (email, {date, diaryContent}) => {
 	try {
-		const user = await UserModel.findOne({email});
+		const user = await UserModel.findById({_id:email});
 		let userDiary;
 		let found = false;
 		if (user.diary.length !== 0 ) {
@@ -64,7 +64,7 @@ const addDiary = async (email, {date, diaryContent}) => {
 };
 const findDiary = async (email, date) => {
 	try{
-		const user = await UserModel.findOne({email});
+		const user = await UserModel.findById({_id:email});
 		let userDiary;
 		user.diary.forEach(diary => {
 			if(diary._id === date){
