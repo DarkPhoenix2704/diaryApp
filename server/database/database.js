@@ -48,7 +48,7 @@ const addDiary = async (email, {date, diaryContent}) => {
 			userDiary = [{_id:date, content:diaryContent}];
 		}
 		user.diary = userDiary;
-		UserModel.replaceOne({email}, user, (err) => {
+		UserModel.replaceOne({_id:email}, user, (err) => {
 			if (err) {
 				console.log(err);
 				return {status:"error", message: "Error"};
@@ -56,7 +56,6 @@ const addDiary = async (email, {date, diaryContent}) => {
 				return {status:"ok", message: "Diary Added"};
 			}
 		});
-		return {status:"ok", message: "Diary Added"};
 	} catch (error) {
 		console.log(error);
 		return {status:"error", message: "Unknown Error"};
