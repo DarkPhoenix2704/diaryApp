@@ -25,7 +25,7 @@ function Home() {
 		}
 	},[selectedDay]);
 	useEffect(async () => {
-		let url = "http://65.2.60.100:8080/api/diary?date=" + date;
+		let url = "https://ec2-65-2-60-100.ap-south-1.compute.amazonaws.com:8080/api/diary?date=" + date;
 		const response = await fetch(url,{
 			method: "GET",
 			headers: {
@@ -44,7 +44,7 @@ function Home() {
 
 	async function saveDiary(event){
 		event.preventDefault();
-		const response = await fetch("http://65.2.60.100:8080/api/diary",{
+		const response = await fetch("https://ec2-65-2-60-100.ap-south-1.compute.amazonaws.com:8080/api/diary",{
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
