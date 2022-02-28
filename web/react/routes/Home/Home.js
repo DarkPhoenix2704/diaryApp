@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import Navbar from "../../Components/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -70,7 +71,7 @@ function Home() {
 		<>
 			<Navbar/>
 			<div className="home-container">
-				<div className="commandBar">
+				<div className="commandBar font">
 					<DatePicker value={selectedDay}
 						onChange={setSelectedDay}
 						inputPlaceholder="Select a day"
@@ -81,11 +82,11 @@ function Home() {
 					</button>
 				</div>
 				<div className="content">
-					<div className="content-left">
+					<div className="content-left font">
 						<textarea className="content-left-textarea" value={markdownSource} onChange={(e) => setMarkdownSource(e.target.value)}/>
 					</div>
 					<div className="content-right">
-						<ReactMarkdown children={markdownSource} className="contentRightText" remarkPlugins={[remarkGfm]} />
+						<ReactMarkdown children={markdownSource} remarkPlugins={[remarkGfm]} />
 					</div>
 				</div>
 			</div>

@@ -2,8 +2,10 @@
 *{
     padding: 0px;
     margin: 0px;
-    font-family: "Poppins", "Times New Roman", Times, serif;
     box-sizing: border-box;
+}
+.font{
+    font-family: 'Poppins', sans-serif;
 }
 .login-container {
     margin-inline: 18px;
