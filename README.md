@@ -5,8 +5,9 @@
 ![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
 
-A simple DiaryApp built with React and Express
+A simple DiaryApp built with React, Express and Mongo
 
+This is development branch, check [heroku](https://github.com/DarkPhoenix2704/diaryApp/tree/heroku) branch for production ready source
 ## [Demo](https://diary2704.herokuapp.com/)
 Test Account
 
