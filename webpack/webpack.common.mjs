@@ -90,7 +90,8 @@ export default () => ({
 		new InjectManifest({
 			swSrc: "./web/react/sw.js",
 			swDest: "sw.js",
-			exclude: [ /\.map$/, /^manifest.*\.js(?:on)?$/, /\.(jpe?g|png|webp)$/i ]
+			exclude: [ /\.map$/, /^manifest.*\.js(?:on)?$/, /\.(jpe?g|png|webp)$/i ],
+			maximumFileSizeToCacheInBytes: 3*1024*1024
 		}),
 		new WebpackPwaManifest({
 			filename: "manifest.json",
