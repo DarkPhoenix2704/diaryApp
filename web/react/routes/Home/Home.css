@@ -37,9 +37,13 @@
     height: 100%;
 }
 .content .content-right{
+    margin-inline-start: 16px;
     padding-inline: 8px;
     width: 50%;
     height: 80vh;
+}
+.content .content-right .contentRightText{
+    font-family: "Times New Roman", Times, serif;
 }
 .content .content-left .content-left-textarea{
     width: 100%;
