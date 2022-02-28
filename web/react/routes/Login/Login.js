@@ -34,7 +34,7 @@ function Login() {
 	}
 	return (
 		<>
-			<div className="login-container">
+			<div className="login-container font">
 				<div className="loginHeader">
 					<FontAwesomeIcon icon={solid("book")} size="3x"className="headerIcon" />
 					<h2>Welcome Back</h2>

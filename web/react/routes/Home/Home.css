@@ -37,6 +37,7 @@
     height: 100%;
 }
 .content .content-right{
+    margin-inline-start: 16px;
     padding-inline: 8px;
     width: 50%;
     height: 80vh;

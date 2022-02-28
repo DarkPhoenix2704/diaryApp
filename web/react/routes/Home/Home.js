@@ -1,10 +1,12 @@
+/* eslint-disable react/no-children-prop */
 import Navbar from "../../Components/Navbar/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import "react-toastify/dist/ReactToastify.css";
 import DatePicker from "react-modern-calendar-datepicker";
-import { Remark } from "react-remark";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useEffect, useState } from "react";
 import "./Home.css";
 import { toast, ToastContainer } from "react-toastify";
@@ -69,7 +71,7 @@ function Home() {
 		<>
 			<Navbar/>
 			<div className="home-container">
-				<div className="commandBar">
+				<div className="commandBar font">
 					<DatePicker value={selectedDay}
 						onChange={setSelectedDay}
 						inputPlaceholder="Select a day"
@@ -80,19 +82,11 @@ function Home() {
 					</button>
 				</div>
 				<div className="content">
-					<div className="content-left">
+					<div className="content-left font">
 						<textarea className="content-left-textarea" value={markdownSource} onChange={(e) => setMarkdownSource(e.target.value)}/>
 					</div>
 					<div className="content-right">
-						<Remark className="contentRightText"
-							rehypePlugins={[
-								function noRefCheck(){},
-								function noRefCheck(){}
-							]}
-							remarkToRehypeOptions={{
-								allowDangerousHtml: true
-							}}
-						>{markdownSource}</Remark>
+						<ReactMarkdown children={markdownSource} remarkPlugins={[remarkGfm]} />
 					</div>
 				</div>
 			</div>
