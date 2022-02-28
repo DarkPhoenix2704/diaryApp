@@ -1,11 +1,11 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { fileURLToPath } from "url";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { InjectManifest } from "workbox-webpack-plugin";
 import WebpackPwaManifest from "webpack-pwa-manifest";
 import sharp from "responsive-loader";
 import webpack from "webpack";
+import { InjectManifest } from "workbox-webpack-plugin";
+import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -93,7 +93,7 @@ export default () => ({
 			exclude: [ /\.map$/, /^manifest.*\.js(?:on)?$/, /\.(jpe?g|png|webp)$/i ]
 		}),
 		new WebpackPwaManifest({
-			filename: "manifest.[contenthash].json",
+			filename: "manifest.json",
 			name: "My Diary",
 			short_name: "Diary",
 			background_color: "#ffffff",
