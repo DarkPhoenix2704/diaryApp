@@ -4,7 +4,8 @@ import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import "react-toastify/dist/ReactToastify.css";
 import DatePicker from "react-modern-calendar-datepicker";
-import { Remark } from "react-remark";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useEffect, useState } from "react";
 import "./Home.css";
 import { toast, ToastContainer } from "react-toastify";
@@ -84,15 +85,7 @@ function Home() {
 						<textarea className="content-left-textarea" value={markdownSource} onChange={(e) => setMarkdownSource(e.target.value)}/>
 					</div>
 					<div className="content-right">
-						<Remark className="contentRightText"
-							rehypePlugins={[
-								function noRefCheck(){},
-								function noRefCheck(){}
-							]}
-							remarkToRehypeOptions={{
-								allowDangerousHtml: true
-							}}
-						>{markdownSource}</Remark>
+						<ReactMarkdown children={markdownSource} className="contentRightText" remarkPlugins={[remarkGfm]} />
 					</div>
 				</div>
 			</div>
