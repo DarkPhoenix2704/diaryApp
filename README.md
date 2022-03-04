@@ -1,22 +1,60 @@
 # DiaryApp
-![](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
-![](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-![](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=white)
-![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+A Simple DiaryApp where you can jot down your memories
 
+## Team members
+1. [N ANBARASU](https://github.com/DarkPhoenix2704)
+2. [VYSHNAV KS](https://github.com/Vyshnav-KS)
 
-A simple DiaryApp built with React, Express and Mongo
+## Team Id
+Node js / 19
 
-This is development branch, check [heroku](https://github.com/DarkPhoenix2704/diaryApp/tree/heroku) branch for production ready source
-## [Demo](https://diary2704.herokuapp.com/)
-Test Account
+## Link to product walkthrough
+[link to video]
 
-email:    test@test.com
+## How it Works ?
+### [DEMO](https://diary2704.herokuapp.com/)
+
+email: test@test.com
 
 password: Test123
 
+1. Go to demo website
+2. Register & Login your account
+3. Select a Date & type you memories in markdown
+4. Click Save
+5. To view past diaries, just select date from Calender Picker
 
-# Creators
-[DarkPhoenix2704](https://github.com/DarkPhoenix2704)
+## Libraries used
+mongooose 6.2.2
 
-[Vyshnav-KS](https://github.com/Vyshnav-KS)
+react 17.0.2
+
+react-markdown 8.0.0
+
+remark-gfm 3.0.1
+
+express 4.17.3
+
+## How to configure
+1. Clone the Project
+```
+git clone -b main https://github.com/DarkPhoenix2704/diaryApp.git
+```
+2. Go to Project Directory
+```
+cd diaryApp
+```
+
+3. Install Libraries
+```
+npm install && cd server && npm install
+```
+
+4. Update env
+```
+nano server/.env
+```
+## How to Run
+```
+npm start
+```
