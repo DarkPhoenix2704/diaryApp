@@ -9,7 +9,7 @@ A Simple DiaryApp where you can jot down your memories
 Node js / 19
 
 ## Link to product walkthrough
-[link to video]
+[Video](https://www.loom.com/share/579aa116799f4a07bdc0302cfde7e6ef)
 
 ## How it Works ?
 ### [DEMO](https://diary2704.herokuapp.com/)
