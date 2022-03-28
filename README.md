@@ -1,6 +1,8 @@
 # DiaryApp
 A Simple DiaryApp where you can jot down your memories
 
+# Backend is down. So won't work
+
 ## Team members
 1. [N ANBARASU](https://github.com/DarkPhoenix2704)
 2. [VYSHNAV KS](https://github.com/Vyshnav-KS)
