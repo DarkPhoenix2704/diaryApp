@@ -37,7 +37,7 @@ remark-gfm 3.0.1
 express 4.17.3
 
 ## How to configure
-1. Clone the Project
+1. Clone the Code
 ```
 git clone -b main https://github.com/DarkPhoenix2704/diaryApp.git
 ```
