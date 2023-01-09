@@ -12,7 +12,7 @@ function Login() {
 	const navigate = useNavigate();
 	async function handleLogin(event) {
 		event.preventDefault();
-		const response = await fetch("https://ec2-65-2-60-100.ap-south-1.compute.amazonaws.com/api/login", {
+		const response = await fetch("https://diaryapp-production.up.railway.app/api/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
