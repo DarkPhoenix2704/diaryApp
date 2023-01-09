@@ -98,6 +98,6 @@ app.get("/api/diary", async (req, res) => {
 		});
 	}
 });
-app.listen(8080, () => {
+app.listen(process.env.PORT, () => {
 	console.log("API active 8080");
 });
