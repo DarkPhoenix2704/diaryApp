@@ -13,7 +13,7 @@ function Register() {
 	const navigate = useNavigate();
 	async function handleRegister(event) {
 		event.preventDefault();
-		const response = await fetch("https://ec2-65-2-60-100.ap-south-1.compute.amazonaws.com/api/register", {
+		const response = await fetch("https://diaryapp-production.up.railway.app/api/register", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
