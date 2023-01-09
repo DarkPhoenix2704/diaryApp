@@ -27,7 +27,7 @@ function Home() {
 		}
 	},[selectedDay]);
 	useEffect(async () => {
-		let url = "https://ec2-65-2-60-100.ap-south-1.compute.amazonaws.com/api/diary?date=" + date;
+		let url = "https://diaryapp-production.up.railway.app/api/diary?date=" + date;
 		const response = await fetch(url,{
 			method: "GET",
 			headers: {
@@ -46,7 +46,7 @@ function Home() {
 
 	async function saveDiary(event){
 		event.preventDefault();
-		const response = await fetch("https://ec2-65-2-60-100.ap-south-1.compute.amazonaws.com/api/diary",{
+		const response = await fetch("https://diaryapp-production.up.railway.app/api/diary",{
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
